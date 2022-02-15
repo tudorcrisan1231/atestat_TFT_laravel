@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="/css/base.css">
 </head>
 <body>
-    <h1>home page  dsaddsad  acdsac2</h1>
+    <h1>home page</h1>
 </body>
 </html>
