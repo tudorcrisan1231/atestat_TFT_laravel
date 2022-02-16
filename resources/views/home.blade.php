@@ -4,7 +4,8 @@
 
 <div class="home">
     {{-- <img src="/images//home_img-removebg-preview.png" alt="poro_img" class="home_img"> --}}
-
+    <h1 class="login_btn">LOGIN</h1>
+     {{$news[0]->link}}
     
     <p class="home_title">THE BEST TEAM STATS. MATCH HISTORY AT YOUR FINGERTIPS</p>
 
@@ -34,8 +35,6 @@
     
     <div class="home_news">
         news
-        
-        <h1 class="login_btn">LOGIN</h1>
     </div>        
 </div>
 

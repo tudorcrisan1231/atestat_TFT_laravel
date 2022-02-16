@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 100vh;
     z-index: 20;
 
@@ -52,7 +52,7 @@ body {
 }
 
 .home_form_region {
-    width: 15rem;
+    width: 10rem;
     outline: none;
 }
 .home_form_user {
@@ -206,4 +206,25 @@ body {
 .hidden {
     top: -100% !important;
     transition: all 0.2s;
+}
+
+.login_btn {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    color: #fff;
+    background-color: #7f5af0;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+    &:active {
+        transform: translateY(1px);
+    }
 }
