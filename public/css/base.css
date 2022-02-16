@@ -1,4 +1,42 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media screen and (min-width: 1950px) {
+  html {
+    font-size: 85%;
+  }
+}
 body {
-  background-color: gray;
-  color: red;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  /*    padding: 3rem;*/
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
