@@ -5,26 +5,27 @@
 <div class="home">
     {{-- <img src="/images//home_img-removebg-preview.png" alt="poro_img" class="home_img"> --}}
     <h1 class="login_btn">LOGIN</h1>
-     {{$news[0]->link}}
     
     <p class="home_title">THE BEST TEAM STATS. MATCH HISTORY AT YOUR FINGERTIPS</p>
 
-    <form class="home_form">
-        <select class="home_form_region">
+    
+    <form class="home_form" action="/" method="POST">  {{-- datele din form le trimite POST la /  (adica home page ul) --}}
+        @csrf
+        <select class="home_form_region" name="region">
             <option disabled selected>Region...</option>
-            <option>EUNE</option>
-            <option>EUW</option>
-            <option>NA</option>
-            <option>LA</option>
-            <option>LAS</option>
-            <option>RU</option>
-            <option>TR</option>
-            <option>KR</option>
-            <option>OC</option>
-            <option>JP</option>
+            <option value="eun1">EUNE</option>
+            <option value="euw1">EUW</option>
+            <option value="na1">NA</option>
+            <option value="la1">LAN</option>
+            <option value="la2">LAS</option>
+            <option value="ru">RU</option>
+            <option value="tr1">TR</option>
+            <option value="kr">KR</option>
+            <option value="oc1">OC</option>
+            <option value="jp1">JP</option>
         </select>
         
-        <input class="home_form_user" type="text" placeholder="Summoner's name...">
+        <input class="home_form_user" type="text" placeholder="Summoner's name..." name="summonerName">
         
         <button type="submit" class="home_form_btn">
             <svg class="svg-icon" viewBox="0 0 20 20">
@@ -34,7 +35,20 @@
     </form>
     
     <div class="home_news">
-        news
+        <div class="news_container">
+            <h4 class="news_title">TFT: Teamfight Tactics news and useful links:</h4>
+            <div class="news">
+                @for($i = 0; $i < count($news); $i++)
+                    <a class="news_article" href="{{$news[$i]->link}}" target="_blank">
+                    <img src="{{$news[$i]->img}}" alt="patch_notes" class="news_img" />
+                    <div class="news_article_details">
+                      <h3 class="news_article_game">{{$news[$i]->name}}</h3>
+                      <p class="news_article_description">{{$news[$i]->description}}</p>
+                    </div>
+                  </a>
+                @endfor
+            </div>
+        </div>
     </div>        
 </div>
 
