@@ -23,6 +23,7 @@
             <option value="kr">KR</option>
             <option value="oc1">OC</option>
             <option value="jp1">JP</option>
+            <option value="br1">BR</option>
         </select>
         
         <input class="home_form_user" type="text" placeholder="Summoner's name..." name="summonerName">

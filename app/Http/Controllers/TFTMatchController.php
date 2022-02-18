@@ -21,8 +21,41 @@ class TFTMatchController extends Controller
 
     public function matchData($region, $summonerName)
     {
-        return view('match.match', ['region' => $region, 'summonerName' => $summonerName]);
+        $api_key = $_ENV['API_KEY'];
+
+        $profile_data = Http::get("https://{$region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}");
+
+        // dd($profile_data->status());
+
+        if ($profile_data->status() == 200) {
+            return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => $profile_data->object()]);
+        } else {
+
+            $regions = DB::table('regions')->get();
+            // dd($regions[0]->region);
+
+            $account_found = array();
+
+            for ($i = 0; $i < count($regions); $i++) {
+                $response = Http::get("https://{$regions[$i]->region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}");
+
+                if ($response->status() == 200) {
+                    array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'yes', $response->object()->profileIconId]);
+                } else {
+                    array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'no']);
+                }
+            }
+
+            // dd($account_found);
+
+            return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => 'no', 'searched_data' => $account_found]);
+        }
     }
+
+    // public function test($id)
+    // {
+    //     return $id;
+    // }
 
     public function getDataFormHomePage()
     {
