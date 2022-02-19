@@ -2,7 +2,7 @@
     <p> Can't find <span class="match_error_name">{{$summonerName}} #{{$region}}</span>. Please check spelling.</p>
     <a href="/" class="match_error_back">Back home</a>
     <p>OR</p>
-
+    
     @for($i=0; $i<count($searched_data); $i++)
         <div class="match_error_player">
             @if(count($searched_data[$i])==4)

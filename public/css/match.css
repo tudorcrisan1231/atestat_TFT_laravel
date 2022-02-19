@@ -82,17 +82,11 @@ body {
   border: 1px solid rgba(114, 117, 126, 0.2);
   font-size: 1.4rem;
   width: 100%;
-  height: 20rem;
   margin-bottom: 2rem;
   border-radius: 3px;
 }
 .match_ranks {
-  background-color: #242629;
-  border: 1px solid rgba(114, 117, 126, 0.2);
   font-size: 1.4rem;
-  width: 100%;
-  height: 15rem;
-  border-radius: 3px;
 }
 .match_summary {
   background-color: #242629;
@@ -109,4 +103,101 @@ body {
   font-size: 1.4rem;
   width: 100%;
   border-radius: 3px;
+}
+
+.profile {
+  color: #fffffe;
+  background-color: #242629;
+  border: 1px solid rgba(114, 117, 126, 0.2);
+  font-size: 1.4rem;
+  display: grid;
+  grid-template-columns: -webkit-min-content -webkit-max-content;
+  grid-template-columns: min-content max-content;
+  gap: 0.5rem;
+  align-items: center;
+}
+@media screen and (max-width: 1000px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem 0 2rem;
+    text-align: center;
+  }
+  .profile_name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile_name svg {
+    margin-left: 0rem;
+    margin: 0.5rem 0 1rem 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .profile {
+    flex-direction: row;
+    text-align: left;
+    padding: 0;
+  }
+  .profile_name {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.profile_name {
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+}
+.profile_name svg {
+  margin-left: 1rem;
+  cursor: pointer;
+  color: #7f5af0;
+}
+.profile_img {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.profile_img img {
+  width: 8rem;
+  height: 8rem;
+  border: 3px solid rgba(114, 117, 126, 0.5);
+}
+
+.ranks {
+  margin-top: 1rem;
+  background-color: #242629;
+  border: 1px solid rgba(114, 117, 126, 0.2);
+  font-size: 1.4rem;
+  padding: 1rem 0 1rem 0;
+  border-radius: 3px;
+}
+.ranks > *:not(:last-child) {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(114, 117, 126, 0.2);
+  padding-bottom: 1rem;
+}
+.ranks_rank {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding: 0.5rem;
+}
+.ranks_rank_img {
+  margin-right: 1rem;
+}
+.ranks_rank_img img {
+  width: 9rem;
+  height: 8rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ranks_rank_title {
+  font-size: 1.5rem;
+  color: gray;
+}
+.ranks_rank_color {
+  color: gray;
 }

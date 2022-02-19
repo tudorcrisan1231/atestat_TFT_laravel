@@ -25,10 +25,14 @@ class TFTMatchController extends Controller
 
         $profile_data = Http::get("https://{$region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}");
 
-        // dd($profile_data->status());
+
+
+
 
         if ($profile_data->status() == 200) {
-            return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => $profile_data->object()]);
+            $rank = $this->getRank($profile_data->object()->id, $region, $api_key);
+
+            return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => $profile_data->object(), 'ranks' => $rank]);
         } else {
 
             $regions = DB::table('regions')->get();
@@ -46,16 +50,41 @@ class TFTMatchController extends Controller
                 }
             }
 
-            // dd($account_found);
 
             return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => 'no', 'searched_data' => $account_found]);
         }
     }
 
-    // public function test($id)
-    // {
-    //     return $id;
-    // }
+    public function getRank($summonerID, $region, $api_key)
+    {
+        $response = Http::get("https://{$region}.api.riotgames.com/tft/league/v1/entries/by-summoner/{$summonerID}?api_key={$api_key}");
+
+        // dd($response->object());
+
+        $ranks_hyperRoll = 'unranked';
+        $ranks_ranked = 'unranked';
+
+        $response = $response->object();
+
+        if (count($response) == 0) {
+            $ranks_ranked = 'unranked';
+            $ranks_hyperRoll = 'unranked';
+        } else {
+            for ($i = 0; $i < count($response); $i++) {
+                if ($response[$i]->queueType == 'RANKED_TFT_TURBO') {
+                    $ranks_hyperRoll = $response[$i];
+                }
+            }
+            for ($i = 0; $i < count($response); $i++) {
+                if ($response[$i]->queueType == 'RANKED_TFT') {
+                    $ranks_ranked = $response[$i];
+                }
+            }
+        }
+        // dd([$ranks_ranked, $ranks_hyperRoll]);
+        return [$ranks_ranked, $ranks_hyperRoll];
+    }
+
 
     public function getDataFormHomePage()
     {

@@ -16,8 +16,7 @@
             @include('match.components.profile')
         </div>
         <div class="match_ranks">
-            <p>rank</p>
-    
+            @include('match.components.ranks')
         </div>
     </div>
 
