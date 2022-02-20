@@ -12,10 +12,12 @@
 
     <link href="/css/base.css" rel="stylesheet">
     <link href="/css/match.css" rel="stylesheet">
+    @livewireStyles
 </head>
 <body>
     @yield('match_content')
 
     <script src="/js/script.js"></script>
+    @livewireScripts
 </body>
 </html>

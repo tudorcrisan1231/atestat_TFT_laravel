@@ -18,6 +18,27 @@ class TFTMatchController extends Controller
         // dd($response->object());
         return view('home', ['news' => $news]);
     }
+    public function getRegionContinent($region)
+    {
+        if (
+            $region == "eun1" ||
+            $region == "tr" ||
+            $region == "euw1" ||
+            $region == "ru"
+        ) {
+            return "europe";
+        } else if (
+            $region == "na1" ||
+            $region == "br1" ||
+            $region == "la1" ||
+            $region == "la2" ||
+            $region == "oc1"
+        ) {
+            return "americas";
+        } else {
+            return "asia";
+        }
+    }
 
     public function matchData($region, $summonerName)
     {
@@ -35,23 +56,23 @@ class TFTMatchController extends Controller
             return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => $profile_data->object(), 'ranks' => $rank]);
         } else {
 
-            $regions = DB::table('regions')->get();
-            // dd($regions[0]->region);
+            // $regions = DB::table('regions')->get();
+            // // dd($regions[0]->region);
 
-            $account_found = array();
+            // $account_found = array();
 
-            for ($i = 0; $i < count($regions); $i++) {
-                $response = Http::get("https://{$regions[$i]->region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}");
+            // for ($i = 0; $i < count($regions); $i++) {
+            //     $response = Http::get("https://{$regions[$i]->region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}");
 
-                if ($response->status() == 200) {
-                    array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'yes', $response->object()->profileIconId]);
-                } else {
-                    array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'no']);
-                }
-            }
+            //     if ($response->status() == 200) {
+            //         array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'yes', $response->object()->profileIconId]);
+            //     } else {
+            //         array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'no']);
+            //     }
+            // }
 
 
-            return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => 'no', 'searched_data' => $account_found]);
+            return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => 'no']);
         }
     }
 
@@ -83,6 +104,10 @@ class TFTMatchController extends Controller
         }
         // dd([$ranks_ranked, $ranks_hyperRoll]);
         return [$ranks_ranked, $ranks_hyperRoll];
+    }
+
+    public function getMatchHistory($puuid, $region)
+    {
     }
 
 

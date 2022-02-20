@@ -1,11 +1,8 @@
-<div class="match_error">
-    <p> Can't find <span class="match_error_name">{{$summonerName}} #{{$region}}</span>. Please check spelling.</p>
-    <a href="/" class="match_error_back">Back home</a>
-    <p>OR</p>
+<div wire:init="render_dataNotFound">
 
-    <livewire:get-data-t-f-t :summonerName="$summonerName">
-    
-    {{-- @for($i=0; $i<count($searched_data); $i++)
+
+    @if($searched_data)
+    @for($i=0; $i<count($searched_data); $i++)
         <div class="match_error_player">
             @if(count($searched_data[$i])==4)
                 <p>{{$searched_data[$i][1]}}:</p>
@@ -18,8 +15,17 @@
             @endif
         </div>
 
-    @endfor --}}
-    
-    {{-- @php echo App\Http\Controllers\TFTMatchController::test(1);  @endphp --}}
-    
+    @endfor
+
+    @else
+
+    <p>ok...</p>
+    @endif
+
+
+    <script>
+
+        Livewire.emit('render_dataNotFound');
+
+    </script>
 </div>
