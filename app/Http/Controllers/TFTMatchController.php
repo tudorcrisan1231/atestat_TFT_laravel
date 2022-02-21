@@ -47,30 +47,15 @@ class TFTMatchController extends Controller
         $profile_data = Http::get("https://{$region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}");
 
 
-
+        // dd($profile_data->status());
 
 
         if ($profile_data->status() == 200) {
-            $rank = $this->getRank($profile_data->object()->id, $region, $api_key);
+            $rank = $this->getRank($profile_data->object()->id, $region, $api_key);  //rank urile 
+            $gamesId_list = $this->getMatchHistory($profile_data->object()->puuid, $region, $api_key); //lista cu match id uri (10)
 
             return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => $profile_data->object(), 'ranks' => $rank]);
         } else {
-
-            // $regions = DB::table('regions')->get();
-            // // dd($regions[0]->region);
-
-            // $account_found = array();
-
-            // for ($i = 0; $i < count($regions); $i++) {
-            //     $response = Http::get("https://{$regions[$i]->region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}");
-
-            //     if ($response->status() == 200) {
-            //         array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'yes', $response->object()->profileIconId]);
-            //     } else {
-            //         array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'no']);
-            //     }
-            // }
-
 
             return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => 'no']);
         }
@@ -106,8 +91,10 @@ class TFTMatchController extends Controller
         return [$ranks_ranked, $ranks_hyperRoll];
     }
 
-    public function getMatchHistory($puuid, $region)
+    public function getMatchHistory($puuid, $region, $api_key)
     {
+        $gamesId_list = Http::get("https://{$this->getRegionContinent($region)}.api.riotgames.com/tft/match/v1/matches/by-puuid/{$puuid}/ids?count=10&api_key={$api_key}");
+        dd($gamesId_list->object());
     }
 
 

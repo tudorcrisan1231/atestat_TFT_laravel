@@ -1,42 +1,35 @@
 @extends('layout.match_layout')
 @section('match_content')
+    @if ($profile_data == 'no')
+        @include('match.components.not_found')
 
-@if($profile_data == 'no')
+    @else
 
-    @include('match.components.not_found')
+        <div class="match">
+            {{-- {{$region}}
+    {{$summonerName}} --}}
 
-@else
+            <div class="match_left">
+                <div class="match_profile">
+                    @include('match.components.profile')
+                </div>
+                <div class="match_ranks">
+                    @include('match.components.ranks')
+                </div>
+            </div>
 
-<div class="match">
-    {{-- {{$region}}
-    {{$summonerName}}     --}}
+            <div class="match_right">
+                <div class="match_summary">
+                    <p>matches summary</p>
 
-    <div class="match_left">
-        <div class="match_profile">
-            @include('match.components.profile')
+                </div>
+
+                <div class="match_history">
+                    <p>matches history</p>
+
+                </div>
+            </div>
+
         </div>
-        <div class="match_ranks">
-            @include('match.components.ranks')
-        </div>
-    </div>
-
-    <div class="match_right">
-        <div class="match_summary">
-            <p>matches summary</p>
-
-        </div>
-    
-        <div class="match_history">
-            <p>matches history</p>
-    
-        </div>
-    </div>
-
-</div>
-
-@endif
-
-
-
-
+    @endif
 @endsection

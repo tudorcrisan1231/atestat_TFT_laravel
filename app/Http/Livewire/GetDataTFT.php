@@ -25,7 +25,6 @@ class GetDataTFT extends Component
 
         for ($i = 0; $i < count($regions); $i++) {
             $response = Http::get("https://{$regions[$i]->region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$this->summonerName}?api_key={$api_key}");
-
             if ($response->status() == 200) {
                 array_push($account_found, [$regions[$i]->region, $regions[$i]->region_name, 'yes', $response->object()->profileIconId]);
             } else {
