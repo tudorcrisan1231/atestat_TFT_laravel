@@ -54,7 +54,8 @@ class TFTMatchController extends Controller
             $rank = $this->getRank($profile_data->object()->id, $region, $api_key);  //rank urile 
             $gamesId_list = $this->getMatchHistory($profile_data->object()->puuid, $region, $api_key); //lista cu match id uri (10)
 
-            return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => $profile_data->object(), 'ranks' => $rank]);
+
+            return view('match.match', ['region' => $region, 'continent' => $this->getRegionContinent($region), 'summonerName' => $summonerName, 'profile_data' => $profile_data->object(), 'ranks' => $rank, 'games_list' => $gamesId_list]);
         } else {
 
             return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => 'no']);
@@ -94,7 +95,8 @@ class TFTMatchController extends Controller
     public function getMatchHistory($puuid, $region, $api_key)
     {
         $gamesId_list = Http::get("https://{$this->getRegionContinent($region)}.api.riotgames.com/tft/match/v1/matches/by-puuid/{$puuid}/ids?count=10&api_key={$api_key}");
-        dd($gamesId_list->object());
+        // dd($gamesId_list->object());
+        return $gamesId_list->object();
     }
 
 

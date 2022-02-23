@@ -2,7 +2,6 @@
 @section('match_content')
     @if ($profile_data == 'no')
         @include('match.components.not_found')
-
     @else
 
         <div class="match">
@@ -25,8 +24,7 @@
                 </div>
 
                 <div class="match_history">
-                    <p>matches history</p>
-
+                    @include('match.components.single_match')
                 </div>
             </div>
 

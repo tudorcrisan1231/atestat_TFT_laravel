@@ -116,6 +116,7 @@ body {
         width: 100%;
         // height: 100%;
         border-radius: 3px;
+        padding: 1rem;
     }
 }
 .profile {
@@ -215,5 +216,24 @@ body {
         &_color {
             color: gray;
         }
+    }
+}
+
+.game {
+    padding: 0.5rem;
+    background-color: #72757e;
+    margin-bottom: 2rem;
+    border-radius: 3px;
+
+    &_loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;
+        height: 5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
