@@ -10,7 +10,7 @@ class TFTMatchController extends Controller
 {
     public function homePageData()
     {
-        $response = Http::get('https://eun1.api.riotgames.com/tft/summoner/v1/summoners/by-name/Sm03KeR?api_key=RGAPI-0126f4f3-72ee-49fd-b2d7-180c812d3bec');
+        // $response = Http::get('https://eun1.api.riotgames.com/tft/summoner/v1/summoners/by-name/Sm03KeR?api_key=RGAPI-0126f4f3-72ee-49fd-b2d7-180c812d3bec');
 
         $news = DB::table('tft_news')->get();  //trimit in home lista cu news din DB
 
@@ -47,7 +47,7 @@ class TFTMatchController extends Controller
         $profile_data = Http::get("https://{$region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}");
 
 
-        // dd($profile_data->status());
+        // dd($profile_data->object());
 
 
         if ($profile_data->status() == 200) {

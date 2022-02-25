@@ -6,6 +6,13 @@
   box-sizing: inherit;
 }
 
+:root {
+  --main: #7f5af0;
+  --text: #fffffe;
+  --black_box: #242629;
+  --background:#16161a;
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;

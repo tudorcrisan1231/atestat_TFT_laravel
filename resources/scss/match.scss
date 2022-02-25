@@ -3,7 +3,7 @@ body {
 }
 
 .match {
-    color: #fffffe;
+    color: var(--text);
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 2rem;
@@ -21,13 +21,13 @@ body {
         margin-right: 30%;
         text-align: center;
         font-size: 2.5rem;
-        color: #fffffe;
+        color: var(--text);
         margin-top: 4rem;
         margin-bottom: 4rem;
         border-radius: 3px;
         // height: 100vh;
         padding: 1rem;
-        background-color: #242629;
+        background-color: var(--black_box);
         border: 1px solid rgba(#72757e, 0.2);
 
         @media screen and (max-width: 1500px) {
@@ -47,15 +47,15 @@ body {
             margin-bottom: 3rem;
         }
         &_name {
-            color: #7f5af0;
+            color: var(--main);
         }
 
         &_back {
             text-decoration: none;
-            background-color: #7f5af0;
+            background-color: var(--main);
             padding: 0.7rem;
             font-weight: normal;
-            color: #fffffe;
+            color: var(--text);
             font-size: 2rem;
             border-radius: 0.2rem;
         }
@@ -89,7 +89,7 @@ body {
     }
 
     &_profile {
-        background-color: #242629;
+        background-color: var(--black_box);
         border: 1px solid rgba(#72757e, 0.2);
         font-size: 1.4rem;
         width: 100%;
@@ -102,7 +102,7 @@ body {
     }
 
     &_summary {
-        background-color: #242629;
+        background-color: var(--black_box);
         border: 1px solid rgba(#72757e, 0.2);
         font-size: 1.4rem;
         width: 100%;
@@ -112,7 +112,7 @@ body {
     }
 
     &_history {
-        background-color: #242629;
+        background-color: var(--black_box);
         border: 1px solid rgba(#72757e, 0.2);
         font-size: 1.4rem;
         width: 100%;
@@ -122,8 +122,8 @@ body {
     }
 }
 .profile {
-    color: #fffffe;
-    background-color: #242629;
+    color: var(--text);
+    background-color: var(--black_box);
     border: 1px solid rgba(#72757e, 0.2);
     font-size: 1.4rem;
 
@@ -167,7 +167,7 @@ body {
         svg {
             margin-left: 1rem;
             cursor: pointer;
-            color: #7f5af0;
+            color: var(--main);
         }
     }
 
@@ -184,7 +184,7 @@ body {
 }
 .ranks {
     margin-top: 1rem;
-    background-color: #242629;
+    background-color: var(--black_box);
     border: 1px solid rgba(#72757e, 0.2);
     font-size: 1.4rem;
     padding: 1rem 0 1rem 0;

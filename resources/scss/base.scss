@@ -5,6 +5,14 @@
     padding: 0;
     box-sizing: inherit;
 }
+:root {
+    --main: #7f5af0;  
+    --text: #fffffe; 
+    --black_box: #242629; //  var(--black_box)
+    --background:#16161a;
+  }
+
+
 
 html {
     font-size: 62.5%;
