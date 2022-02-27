@@ -1,5 +1,6 @@
 body {
-  background-color: #16161a;
+  background-color: var(--background);
+  overflow: hidden;
 }
 
 .match {
@@ -12,7 +13,9 @@ body {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  height: 100vh;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 .match_error {
   margin-left: 30%;
@@ -204,11 +207,55 @@ body {
   color: gray;
 }
 
+.win {
+  color: var(--color-win);
+}
+
+.lose {
+  color: var(--color-lose);
+}
+
+.first {
+  color: var(--color-first);
+}
+
 .game {
   padding: 0.5rem;
-  background-color: #72757e;
   margin-bottom: 2rem;
   border-radius: 3px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+.game_companionIMG {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.game_win {
+  background-image: linear-gradient(to left, var(--color-win07), var(--color-win01));
+}
+.game_lose {
+  background-image: linear-gradient(to left, var(--color-lose07), var(--color-lose01));
+}
+.game_first {
+  background-image: linear-gradient(to left, var(--color-first07), var(--color-first01));
+}
+.game_details {
+  text-align: center;
+}
+.game_details_place {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.game_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .game_loading {
   display: flex;

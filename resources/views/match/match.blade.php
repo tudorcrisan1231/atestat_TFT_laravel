@@ -3,7 +3,6 @@
     @if ($profile_data == 'no')
         @include('match.components.not_found')
     @else
-
         <div class="match">
             {{-- {{$region}}
     {{$summonerName}} --}}

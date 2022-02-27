@@ -1,5 +1,6 @@
 body {
-    background-color: #16161a;
+    background-color: var(--background);
+    overflow: hidden;
 }
 
 .match {
@@ -8,13 +9,12 @@ body {
     grid-template-columns: 30% 70%;
     gap: 2rem;
     margin-top: 4rem;
-    // overflow-y: hidden;
     margin-bottom: 4rem;
 
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    height: 100vh;
+    height: max-content;
 
     &_error {
         margin-left: 30%;
@@ -221,11 +221,68 @@ body {
     }
 }
 
+.win {
+    color: var(--color-win);
+}
+.lose {
+    color: var(--color-lose);
+}
+.first {
+    color: var(--color-first);
+}
+
 .game {
     padding: 0.5rem;
-    background-color: #72757e;
     margin-bottom: 2rem;
     border-radius: 3px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+
+    &_companionIMG {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &_win {
+        background-image: linear-gradient(
+            to left,
+            var(--color-win07),
+            var(--color-win01)
+        );
+    }
+    &_lose {
+        background-image: linear-gradient(
+            to left,
+            var(--color-lose07),
+            var(--color-lose01)
+        );
+    }
+    &_first {
+        background-image: linear-gradient(
+            to left,
+            var(--color-first07),
+            var(--color-first01)
+        );
+    }
+
+    &_details {
+        text-align: center;
+        &_place {
+            font-weight: bold;
+            font-size: 2rem;
+        }
+    }
+
+    &_profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
     &_loading {
         display: flex;

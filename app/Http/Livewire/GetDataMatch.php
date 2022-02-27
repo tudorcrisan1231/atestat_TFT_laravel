@@ -9,6 +9,9 @@ class GetDataMatch extends Component
 {
     public $singleMatch;
     public $continent;
+    public $puuid;
+    public $companionJSON;
+    public $queueJSON;
     public $match;  //datele in json despre meci
     public $matchResponseStatus; //verifica daca a fost facut request ul corect
     public function render()
