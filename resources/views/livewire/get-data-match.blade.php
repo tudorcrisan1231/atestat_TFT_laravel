@@ -59,6 +59,8 @@
                 }
             }
             
+            //ordonez descrescator dupa nr tier ului
+            
         @endphp
         {{-- {{ $companionIMG }} --}}
         <div class="game {{ 'game_' . getClass($match['info']['participants'][$mainPlayerPOZ]['placement']) }}">
@@ -88,7 +90,37 @@
 
 
             <div class="game_traits">
+                @for ($i = 0; $i < count($match['info']['participants'][$mainPlayerPOZ]['traits']); $i++)
+                    @if ($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['tier_current'] > 0)
+                        <div class="game_traits_trait">
 
+
+                            <div class="game_traits_trait_img">
+                                {{-- unde am if uri sunt exceptii, din documentatia ddragon si din requesturile de pe api --}}
+
+
+                                @if ($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'] == 'Set6_Hextech')
+                                    <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_hextech.png"
+                                        alt="" class="game_traits_trait_img_TRAIT"
+                                        style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
+                                @elseif(strtolower(substr($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'], 3)) == '6_mutant')
+                                    <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_6_experimental.png"
+                                        alt="" class="game_traits_trait_img_TRAIT"
+                                        style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
+                                @else
+                                    <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_{{ strtolower(substr($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'], 3)) }}.png"
+                                        alt="" class="game_traits_trait_img_TRAIT"
+                                        style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
+                                @endif
+
+
+                            </div>
+
+
+                            {{-- {{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['num_units'] }} --}}
+                        </div>
+                    @endif
+                @endfor
             </div>
 
             <div class="game_auguments">
@@ -155,4 +187,5 @@
             </circle>
         </svg>
     @endif
+
 </div>

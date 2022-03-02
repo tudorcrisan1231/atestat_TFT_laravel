@@ -268,3 +268,19 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.game_traits {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.game_traits_trait {
+  display: flex;
+  align-items: center;
+}
+.game_traits_trait_img_TRAIT {
+  padding: 1rem;
+  width: 5rem;
+  height: 5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
