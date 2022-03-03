@@ -103,6 +103,10 @@
                                     <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_hextech.png"
                                         alt="" class="game_traits_trait_img_TRAIT"
                                         style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
+                                @elseif($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'] == 'Set6_Bodyguard')
+                                    <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_6_hero.png"
+                                        alt="" class="game_traits_trait_img_TRAIT"
+                                        style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
                                 @elseif(strtolower(substr($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'], 3)) == '6_mutant')
                                     <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_6_experimental.png"
                                         alt="" class="game_traits_trait_img_TRAIT"
