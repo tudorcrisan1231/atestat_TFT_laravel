@@ -41,5 +41,9 @@ function popup_login_register(){
       }
       
   }
-  
+//   tippy('button', {
+//     content: 'Global content',
+//     // trigger: 'click',
+//   });
+
   popup_login_register();

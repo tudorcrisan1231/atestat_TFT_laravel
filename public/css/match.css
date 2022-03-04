@@ -17,6 +17,21 @@ body {
   height: -moz-max-content;
   height: max-content;
 }
+@media screen and (max-width: 1600px) {
+  .match {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .match {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .match {
+    grid-template-columns: 1fr;
+  }
+}
 .match_error {
   margin-left: 30%;
   margin-right: 30%;
@@ -81,6 +96,20 @@ body {
 .match_error_player a {
   color: inherit;
 }
+@media screen and (max-width: 1000px) {
+  .match_left {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .match_left {
+    grid-template-columns: 1fr;
+  }
+}
 .match_profile {
   background-color: var(--black_box);
   border: 1px solid rgba(114, 117, 126, 0.2);
@@ -88,6 +117,11 @@ body {
   width: 100%;
   margin-bottom: 2rem;
   border-radius: 3px;
+}
+@media screen and (max-width: 1000px) {
+  .match_profile {
+    margin-bottom: 0;
+  }
 }
 .match_ranks {
   font-size: 1.4rem;
@@ -124,9 +158,13 @@ body {
 @media screen and (max-width: 1000px) {
   .profile {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding: 0 2rem 0 2rem;
     text-align: center;
+    margin-bottom: 0;
+    height: 100%;
   }
   .profile_name {
     display: flex;
@@ -143,7 +181,8 @@ body {
   .profile {
     flex-direction: row;
     text-align: left;
-    padding: 0;
+    justify-content: flex-start;
+    padding: 1rem 0;
   }
   .profile_name {
     display: flex;
@@ -155,10 +194,25 @@ body {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 500px) {
+  .profile_name {
+    justify-content: flex-start;
+  }
+}
 .profile_name svg {
   margin-left: 1rem;
   cursor: pointer;
   color: var(--main);
+}
+@media screen and (max-width: 1000px) {
+  .profile_name svg {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .profile_name svg {
+    margin-left: 1rem;
+  }
 }
 .profile_img {
   display: flex;
@@ -178,6 +232,11 @@ body {
   font-size: 1.4rem;
   padding: 1rem 0 1rem 0;
   border-radius: 3px;
+}
+@media screen and (max-width: 1000px) {
+  .ranks {
+    margin-top: 0;
+  }
 }
 .ranks > *:not(:last-child) {
   margin-bottom: 1rem;
@@ -224,9 +283,9 @@ body {
   margin-bottom: 2rem;
   border-radius: 3px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 10% 10% 1fr 1fr 1fr 1fr 3rem;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 .game_companionIMG {
   width: 5rem;
@@ -244,6 +303,24 @@ body {
 .game_first {
   background-image: linear-gradient(to left, var(--color-first07), var(--color-first01));
 }
+.game_extend {
+  height: 100%;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+}
+.game_extend_win {
+  background-color: var(--color-win07);
+  color: #fff;
+}
+.game_extend_lose {
+  background-color: var(--color-lose07);
+  color: #fff;
+}
+.game_extend_first {
+  background-color: var(--color-first07);
+  color: #72757e;
+}
 .game_details {
   text-align: center;
 }
@@ -256,6 +333,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 .game_loading {
   display: flex;
@@ -271,15 +349,12 @@ body {
 .game_traits {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-}
-.game_traits_trait {
-  display: flex;
-  align-items: center;
+  gap: 0 !important;
 }
 .game_traits_trait_img_TRAIT {
   padding: 1rem;
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

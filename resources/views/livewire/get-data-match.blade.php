@@ -1,4 +1,5 @@
 <div wire:init="getDataSigleMatch">
+
     @if ($match)
         @php
             $mainPlayerPOZ; //get main player poz
@@ -60,91 +61,40 @@
             }
             
             //ordonez descrescator dupa nr tier ului
+            function orderTierTraits($traits)
+            {
+                // $traits = $match['info']['participants'][$mainPlayerPOZ]['traits'];
+            
+                for ($i = 0; $i < count($traits); $i++) {
+                    for ($j = $i; $j < count($traits); $j++) {
+                        if ($traits[$j]['style'] > $traits[$i]['style']) {
+                            $aux = $traits[$i];
+                            $traits[$i] = $traits[$j];
+                            $traits[$j] = $aux;
+                        }
+                    }
+                }
+                return $traits;
+            }
+            $traits = orderTierTraits($match['info']['participants'][$mainPlayerPOZ]['traits']);
             
         @endphp
         {{-- {{ $companionIMG }} --}}
         <div class="game {{ 'game_' . getClass($match['info']['participants'][$mainPlayerPOZ]['placement']) }}">
-
-            <div class="game_details">
-                <div class="game_details_place">
-                    <p class="{{ getClass($match['info']['participants'][$mainPlayerPOZ]['placement']) }}">
-                        #{{ $match['info']['participants'][$mainPlayerPOZ]['placement'] }}</p>
-                </div>
-                <div class="game_details_type">
-                    {{ $matchType }}
-                </div>
-                <div class="game_details_duration">
-                    {{ $game_duration }}
-                </div>
-                <div class="game_details_ago">
-                    {{ msToTime(round(microtime(true) * 1000) - $match['info']['game_datetime']) }} ago
-                </div>
-            </div>
-
-            <div class="game_profile">
-                <img class="game_companionIMG"
-                    src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/loadouts/companions/{{ strtolower($companionIMG) }}"
-                    alt="companion img">
-                <p>Level: {{ $match['info']['participants'][$mainPlayerPOZ]['level'] }}</p>
-            </div>
-
-
-            <div class="game_traits">
-                @for ($i = 0; $i < count($match['info']['participants'][$mainPlayerPOZ]['traits']); $i++)
-                    @if ($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['tier_current'] > 0)
-                        <div class="game_traits_trait">
-
-
-                            <div class="game_traits_trait_img">
-                                {{-- unde am if uri sunt exceptii, din documentatia ddragon si din requesturile de pe api --}}
-
-
-                                @if ($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'] == 'Set6_Hextech')
-                                    <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_hextech.png"
-                                        alt="" class="game_traits_trait_img_TRAIT"
-                                        style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
-                                @elseif($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'] == 'Set6_Bodyguard')
-                                    <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_6_hero.png"
-                                        alt="" class="game_traits_trait_img_TRAIT"
-                                        style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
-                                @elseif(strtolower(substr($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'], 3)) == '6_mutant')
-                                    <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_6_experimental.png"
-                                        alt="" class="game_traits_trait_img_TRAIT"
-                                        style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
-                                @else
-                                    <img src="https://raw.communitydragon.org/latest/game/assets/ux/traiticons/trait_icon_{{ strtolower(substr($match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['name'], 3)) }}.png"
-                                        alt="" class="game_traits_trait_img_TRAIT"
-                                        style="background-image: url('/images/tier{{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['style'] }}.png'); ">
-                                @endif
-
-
-                            </div>
-
-
-                            {{-- {{ $match['info']['participants'][$mainPlayerPOZ]['traits'][$i]['num_units'] }} --}}
-                        </div>
-                    @endif
-                @endfor
-            </div>
-
-            <div class="game_auguments">
-
-            </div>
-
-            <div class="game_champs">
-
-            </div>
-
-            <div class="game_participants">
-                <div class="game_participants_left">
-
-                </div>
-                <div class="game_participants_right">
-
-                </div>
-            </div>
-
-
+            @include('livewire.components.details')
+            @include('livewire.components.profile')
+            @include('livewire.components.traits')
+            @include('livewire.components.auguments')
+            @include('livewire.components.champs')
+            @include('livewire.components.participants')
+            <button
+                class="game_extend  game_extend_{{ getClass($match['info']['participants'][$mainPlayerPOZ]['placement']) }}">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="m4 9l8 8l8-8" />
+                </svg>
+            </button>
         </div>
     @else
         <svg class="game_loading" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em"
@@ -192,4 +142,15 @@
         </svg>
     @endif
 
+
+
+
 </div>
+<script>
+    startTippy = () => {
+        return tippy('.tippy_tooltip', {
+            content: 'Global content',
+            // trigger: 'click',
+        });
+    }
+</script>

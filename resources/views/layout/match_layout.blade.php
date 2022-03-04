@@ -13,20 +13,16 @@
 
     <link href="/css/base.css" rel="stylesheet">
     <link href="/css/match.css" rel="stylesheet">
+
+
     @livewireStyles
 </head>
 
 <body>
     @yield('match_content')
 
-    <!-- Development -->
-    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    @yield('js')
 
-    <!-- Production -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
-    <script src="/js/script.js"></script>
     @livewireScripts
 </body>
 

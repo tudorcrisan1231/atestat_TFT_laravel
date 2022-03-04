@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/tudorcrisan1231/atestat_TFT_laravel/issues"
   },
-  "homepage": "https://github.com/tudorcrisan1231/atestat_TFT_laravel#readme"
+  "homepage": "https://github.com/tudorcrisan1231/atestat_TFT_laravel#readme",
+  "dependencies": {
+    "tippy.js": "^6.3.7"
+  }
 }
