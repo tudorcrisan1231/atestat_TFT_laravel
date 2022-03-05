@@ -86,7 +86,7 @@
             @include('livewire.components.traits')
             @include('livewire.components.auguments')
             @include('livewire.components.champs')
-            @include('livewire.components.participants')
+            @include('livewire.components.quick_stats')
             <button
                 class="game_extend  game_extend_{{ getClass($match['info']['participants'][$mainPlayerPOZ]['placement']) }}">
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"

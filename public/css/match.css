@@ -283,14 +283,16 @@ body {
   margin-bottom: 2rem;
   border-radius: 3px;
   display: grid;
-  grid-template-columns: 10% 10% 1fr 1fr 1fr 1fr 3rem;
+  grid-template-columns: 10% 10% 15% 5% 1fr 5% 3rem;
   align-items: center;
   gap: 2rem;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 .game_companionIMG {
   width: 5rem;
   height: 5rem;
-  border-radius: 50%;
+  border-radius: 0.8rem;
+  border: 2px solid black;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -349,7 +351,13 @@ body {
 .game_traits {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 0 !important;
+  gap: 0;
+  row-gap: 0.5rem;
+}
+.game_traits_trait_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .game_traits_trait_img_TRAIT {
   padding: 1rem;
@@ -358,4 +366,31 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.game_auguments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.game_auguments > * {
+  border-radius: 3px;
+}
+.game_auguments > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.game_auguments_img {
+  width: 3rem;
+  height: 3rem;
+}
+.game_champs_img {
+  width: 4rem;
+  height: 4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.game_stats {
+  justify-self: center;
 }

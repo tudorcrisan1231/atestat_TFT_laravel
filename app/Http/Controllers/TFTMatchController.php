@@ -58,9 +58,12 @@ class TFTMatchController extends Controller
             $queue_json = [];
             array_push($queue_json, $queues_json->json($key = null));
 
+            $augments_itemsJSON = Http::get("https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/tftitems.json"); //json cu datele despre iteme si augmnets
+            // dd($augments_itemsJSON->object());
+
             // dd($queue_json);
 
-            return view('match.match', ['region' => $region, 'continent' => $this->getRegionContinent($region), 'summonerName' => $summonerName, 'profile_data' => $profile_data->object(), 'ranks' => $rank, 'games_list' => $gamesId_list, 'companion_json' => $companion_json->object(), 'queues_json' => $queue_json]);
+            return view('match.match', ['region' => $region, 'continent' => $this->getRegionContinent($region), 'summonerName' => $summonerName, 'profile_data' => $profile_data->object(), 'ranks' => $rank, 'games_list' => $gamesId_list, 'companion_json' => $companion_json->object(), 'queues_json' => $queue_json, 'augments_itemsJSON' => $augments_itemsJSON->object()]);
         } else {
 
             return view('match.match', ['region' => $region, 'summonerName' => $summonerName, 'profile_data' => 'no']);
