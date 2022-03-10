@@ -87,7 +87,7 @@
             @include('livewire.components.auguments')
             @include('livewire.components.champs')
             @include('livewire.components.quick_stats')
-            <button
+            <button wire:click="extendMatchData"
                 class="game_extend  game_extend_{{ getClass($match['info']['participants'][$mainPlayerPOZ]['placement']) }}">
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"
                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -95,6 +95,10 @@
                         stroke-width="2" d="m4 9l8 8l8-8" />
                 </svg>
             </button>
+
+            @if ($isOpenAdvanced == 1)
+                @include('livewire.components.advanced_data')
+            @endif
         </div>
     @else
         <svg class="game_loading" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em"
@@ -153,4 +157,10 @@
             // trigger: 'click',
         });
     }
+
+    // var game_extend = document.querySelector('.game_extend');
+
+    // game_extend.addEventListener('click', function() {
+    //     document.querySelector('.advanced').classList.toggle('hidden');
+    // });
 </script>

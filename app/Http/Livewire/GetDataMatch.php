@@ -16,6 +16,7 @@ class GetDataMatch extends Component
     public $augments_itemsJSON;
     public $match;  //datele in json despre meci
     public $matchResponseStatus; //verifica daca a fost facut request ul corect
+    public $isOpenAdvanced = 0;
     public function render()
     {
         return view('livewire.get-data-match');
@@ -45,5 +46,12 @@ class GetDataMatch extends Component
         $this->render();
         // $this->getParticipantsNames($this->match);
         // dd($this->participantsNames);
+    }
+
+
+    public function extendMatchData()
+    {
+        $this->isOpenAdvanced = 1;
+        // dd('merge');
     }
 }

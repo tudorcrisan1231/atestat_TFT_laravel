@@ -3,6 +3,10 @@ body {
   overflow: hidden;
 }
 
+.hidden {
+  display: none;
+}
+
 .match {
   color: var(--text);
   display: grid;
