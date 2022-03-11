@@ -51,7 +51,7 @@ class GetDataMatch extends Component
 
     public function extendMatchData()
     {
-        $this->isOpenAdvanced = 1;
+        $this->isOpenAdvanced = !$this->isOpenAdvanced;
         // dd('merge');
     }
 }
