@@ -576,14 +576,14 @@ body {
         text-align: center;
         border-collapse: collapse;
         border-spacing: 1rem;
-
+        overflow-x: auto;
         tr,
         td,
         th {
             border: 1px solid rgba(0, 0, 0, 0.1);
             padding: 1rem;
             transition: all 0.2s;
-            vertical-align: center;
+            vertical-align: middle;
         }
 
         tr:hover {
@@ -593,6 +593,14 @@ body {
         &_profile {
             display: flex;
             align-items: center;
+            text-align: left;
+
+            &_td {
+                // max-width: 200px;
+                // overflow: hidden;
+                // text-overflow: ellipsis;
+                // white-space: nowrap;
+            }
 
             img {
                 width: 4rem;
@@ -619,6 +627,25 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+            }
+        }
+
+        &_traits {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+
+        &_units {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 0.8rem;
+
+            &_champ {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
             }
         }
     }
