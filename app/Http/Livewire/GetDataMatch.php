@@ -17,6 +17,7 @@ class GetDataMatch extends Component
     public $match;  //datele in json despre meci
     public $matchResponseStatus; //verifica daca a fost facut request ul corect
     public $isOpenAdvanced = 0;
+    public $summonerNames = []; //numele celorlalti 7 jucatari din meci (se executa doar cand se da pe extend btn pt ca ar fi prea multe request uri)
     public function render()
     {
         return view('livewire.get-data-match');
@@ -48,10 +49,41 @@ class GetDataMatch extends Component
         // dd($this->participantsNames);
     }
 
+    public function orderPlacemnets($participants)
+    {
+        // $traits = $match['info']['participants'][$mainPlayerPOZ]['traits'];
+
+        for ($i = 0; $i < count($participants); $i++) {
+            for ($j = $i; $j < count($participants); $j++) {
+                if ($participants[$j]['placement'] < $participants[$i]['placement']) {
+                    $aux = $participants[$i];
+                    $participants[$i] = $participants[$j];
+                    $participants[$j] = $aux;
+                }
+            }
+        }
+        return $participants;
+    }
+
 
     public function extendMatchData()
     {
-        $this->isOpenAdvanced = !$this->isOpenAdvanced;
+        $this->isOpenAdvanced = !$this->isOpenAdvanced; //variabila de toggle la advanced stats
+
+        $this->summonerNames = []; //cand se executa functia, se reseteaza vectorul
+
+        $orderedPlayers = $this->orderPlacemnets($this->match['info']['participants']); //se ordoneaza crescator jucatorii dupa locul luat
+
+        for ($i = 0; $i < count($orderedPlayers); $i++) {
+            $api_key = $_ENV['API_KEY'];
+            // https://{$this->region}.api.riotgames.com/tft/summoner/v1/summoners/by-name/{$summonerName}?api_key={$api_key}
+            $response = Http::get("https://{$this->region}.api.riotgames.com/tft/summoner/v1/summoners/by-puuid/{$orderedPlayers[$i]['puuid']}?api_key={$api_key}");
+
+            array_push($this->summonerNames, $response->json($key = null));
+        }
+
+
+        // dd($this->summonerNames);
         // dd('merge');
     }
 }

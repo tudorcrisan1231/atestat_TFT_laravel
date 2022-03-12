@@ -36,6 +36,11 @@ body {
     grid-template-columns: 1fr;
   }
 }
+.match_loading {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: center;
+}
 .match_error {
   margin-left: 30%;
   margin-right: 30%;
@@ -541,4 +546,54 @@ body {
   .game_stats {
     display: none;
   }
+}
+
+.advanced {
+  grid-column: 1/-1;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  padding-top: 1rem;
+}
+.advanced_table {
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 1rem;
+}
+.advanced_table tr,
+.advanced_table td,
+.advanced_table th {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: all 0.2s;
+  vertical-align: center;
+}
+.advanced_table tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.advanced_table_profile {
+  display: flex;
+  align-items: center;
+}
+.advanced_table_profile img {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+.advanced_table_profile a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+.advanced_table_profile a:hover {
+  text-decoration: underline;
+}
+.advanced_table_profile_level {
+  margin-right: 1rem;
+  background-color: var(--main);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
