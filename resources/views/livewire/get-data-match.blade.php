@@ -89,57 +89,59 @@
             @include('livewire.components.quick_stats')
             <button wire:click="extendMatchData"
                 class="game_extend  game_extend_{{ getClass($match['info']['participants'][$mainPlayerPOZ]['placement']) }}">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"
-                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" d="m4 9l8 8l8-8" />
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1.3em" height="1.3em"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                    <path fill="currentColor"
+                        d="M342 88H120c-17.7 0-32 14.3-32 32v224c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16V168h174c8.8 0 16-7.2 16-16v-48c0-8.8-7.2-16-16-16zm578 576h-48c-8.8 0-16 7.2-16 16v176H682c-8.8 0-16 7.2-16 16v48c0 8.8 7.2 16 16 16h222c17.7 0 32-14.3 32-32V680c0-8.8-7.2-16-16-16zM342 856H168V680c0-8.8-7.2-16-16-16h-48c-8.8 0-16 7.2-16 16v224c0 17.7 14.3 32 32 32h222c8.8 0 16-7.2 16-16v-48c0-8.8-7.2-16-16-16zM904 88H682c-8.8 0-16 7.2-16 16v48c0 8.8 7.2 16 16 16h174v176c0 8.8 7.2 16 16 16h48c8.8 0 16-7.2 16-16V120c0-17.7-14.3-32-32-32z" />
                 </svg>
             </button>
 
+            <div wire:loading class="advanced_desktop">
+                <svg class="game_loading match_loading" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
+                    width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <circle cx="12" cy="2" r="0" fill="currentColor">
+                        <animate attributeName="r" begin="0" calcMode="spline" dur="1s"
+                            keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
+                            values="0;2;0;0" />
+                    </circle>
+                    <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(45 12 12)">
+                        <animate attributeName="r" begin="0.125s" calcMode="spline" dur="1s"
+                            keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
+                            values="0;2;0;0" />
+                    </circle>
+                    <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(90 12 12)">
+                        <animate attributeName="r" begin="0.25s" calcMode="spline" dur="1s"
+                            keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
+                            values="0;2;0;0" />
+                    </circle>
+                    <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(135 12 12)">
+                        <animate attributeName="r" begin="0.375s" calcMode="spline" dur="1s"
+                            keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
+                            values="0;2;0;0" />
+                    </circle>
+                    <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(180 12 12)">
+                        <animate attributeName="r" begin="0.5s" calcMode="spline" dur="1s"
+                            keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
+                            values="0;2;0;0" />
+                    </circle>
+                    <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(225 12 12)">
+                        <animate attributeName="r" begin="0.625s" calcMode="spline" dur="1s"
+                            keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
+                            values="0;2;0;0" />
+                    </circle>
+                    <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(270 12 12)">
+                        <animate attributeName="r" begin="0.75s" calcMode="spline" dur="1s"
+                            keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
+                            values="0;2;0;0" />
+                    </circle>
+                    <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(315 12 12)">
+                        <animate attributeName="r" begin="0.875s" calcMode="spline" dur="1s"
+                            keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
+                            values="0;2;0;0" />
+                    </circle>
+                </svg>
+            </div>
 
-            <svg wire:loading class="game_loading match_loading" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                <circle cx="12" cy="2" r="0" fill="currentColor">
-                    <animate attributeName="r" begin="0" calcMode="spline" dur="1s"
-                        keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
-                        values="0;2;0;0" />
-                </circle>
-                <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(45 12 12)">
-                    <animate attributeName="r" begin="0.125s" calcMode="spline" dur="1s"
-                        keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
-                        values="0;2;0;0" />
-                </circle>
-                <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(90 12 12)">
-                    <animate attributeName="r" begin="0.25s" calcMode="spline" dur="1s"
-                        keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
-                        values="0;2;0;0" />
-                </circle>
-                <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(135 12 12)">
-                    <animate attributeName="r" begin="0.375s" calcMode="spline" dur="1s"
-                        keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
-                        values="0;2;0;0" />
-                </circle>
-                <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(180 12 12)">
-                    <animate attributeName="r" begin="0.5s" calcMode="spline" dur="1s"
-                        keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
-                        values="0;2;0;0" />
-                </circle>
-                <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(225 12 12)">
-                    <animate attributeName="r" begin="0.625s" calcMode="spline" dur="1s"
-                        keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
-                        values="0;2;0;0" />
-                </circle>
-                <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(270 12 12)">
-                    <animate attributeName="r" begin="0.75s" calcMode="spline" dur="1s"
-                        keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
-                        values="0;2;0;0" />
-                </circle>
-                <circle cx="12" cy="2" r="0" fill="currentColor" transform="rotate(315 12 12)">
-                    <animate attributeName="r" begin="0.875s" calcMode="spline" dur="1s"
-                        keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" repeatCount="indefinite"
-                        values="0;2;0;0" />
-                </circle>
-            </svg>
 
 
             @if ($isOpenAdvanced == 1)

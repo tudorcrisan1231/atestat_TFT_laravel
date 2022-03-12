@@ -86,4 +86,9 @@ class GetDataMatch extends Component
         // dd($this->summonerNames);
         // dd('merge');
     }
+
+    public function closeExtendMatchData()
+    {
+        $this->isOpenAdvanced = !$this->isOpenAdvanced; //variabila de toggle la advanced stats
+    }
 }
