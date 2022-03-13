@@ -102,10 +102,11 @@
                 <th>Traits</th>
                 <th>Augmnets</th>
                 <th>Units</th>
-                <th>Damage <br> done</th>
+                {{-- <th>Damage <br> done</th>
                 <th>Alive</th>
                 <th>Board <br> value</th>
-                <th>Left Gold</th>
+                <th>Left Gold</th> --}}
+                <th>Stats</th>
             </tr>
             @for ($i = 0; $i < count($summonerNames); $i++)
                 <tr
@@ -123,7 +124,7 @@
                             </a>
                         </div>
                     </td>
-                    <td>
+                    <td class="advanced_table_traits_td">
                         <div class="advanced_table_traits">
                             @for ($j = 0; $j < count($traitsSummoners[$i]); $j++)
                                 @if ($traitsSummoners[$i][$j]['tier_current'] > 0)
@@ -172,11 +173,15 @@
                     </td>
 
                     <td>
-                        @for ($j = 0; $j < count($augmentsSummoners[$i]); $j++)
-                            <img class="game_auguments_img tippy_tooltip"
-                                src="https://raw.communitydragon.org/latest/game/assets/maps/{{ substr($augmentsSummoners[$i][$j][0], 34) }}"
-                                data-tippy-content="{{ $augmentsSummoners[$i][$j][1] }}" onmouseover="startTippy()">
-                        @endfor
+                        <div class="advanced_table_augments">
+                            @for ($j = 0; $j < count($augmentsSummoners[$i]); $j++)
+                                <img class="game_auguments_img tippy_tooltip"
+                                    src="https://raw.communitydragon.org/latest/game/assets/maps/{{ substr($augmentsSummoners[$i][$j][0], 34) }}"
+                                    data-tippy-content="{{ $augmentsSummoners[$i][$j][1] }}"
+                                    onmouseover="startTippy()">
+                            @endfor
+                        </div>
+
                     </td>
 
                     <td>
@@ -229,10 +234,43 @@
                             @endfor
                         </div>
                     </td>
-                    <td>{{ $orderedSummoners[$i]['total_damage_to_players'] }}</td>
-                    <td>{{ gmdate('i:s', $orderedSummoners[$i]['time_eliminated']) }}</td>
-                    <td>{{ $boardValueSummoners[$i] }}</td>
-                    <td>{{ $orderedSummoners[$i]['gold_left'] }}</td>
+                    <td>
+                        <div class="advanced_table_stats">
+                            <div class="tippy_tooltip" data-tippy-content="Total damage dealt to players"
+                                onmouseover="startTippy()">
+                                <img src="https://raw.communitydragon.org/pbe/game/assets/ux/tft/stageicons/announce_icon_combat.png"
+                                    alt="comabt">
+                                <p>{{ $orderedSummoners[$i]['total_damage_to_players'] }}</p>
+
+                            </div>
+                            <div class="tippy_tooltip" data-tippy-content="Time alive" onmouseover="startTippy()">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em"
+                                    height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8zm.5-13H11v6l5.25 3.15l.75-1.23l-4.5-2.67z" />
+                                </svg>
+                                <p>{{ gmdate('i:s', $orderedSummoners[$i]['time_eliminated']) }}</p>
+
+                            </div>
+                            <div class="tippy_tooltip" data-tippy-content="Total board value"
+                                onmouseover="startTippy()">
+                                <img src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-career-stats/global/default/category_income.png"
+                                    alt="comabt">
+                                <p>{{ $boardValueSummoners[$i] }}</p>
+
+                            </div>
+                            <div class="tippy_tooltip" data-tippy-content="Left gold" onmouseover="startTippy()">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em"
+                                    height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M5 9a1 1 0 0 1 1 1a6.97 6.97 0 0 1 4.33 1.5h2.17c1.333 0 2.53.58 3.354 1.5H19a5 5 0 0 1 4.516 2.851C21.151 18.972 17.322 21 13 21c-2.79 0-5.15-.603-7.06-1.658A.998.998 0 0 1 5 20H2a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h3zm1.001 3L6 17.022l.045.032C7.84 18.314 10.178 19 13 19c3.004 0 5.799-1.156 7.835-3.13l.133-.133l-.12-.1a2.994 2.994 0 0 0-1.643-.63L19 15h-2.111c.072.322.111.656.111 1v1H8v-2l6.79-.001l-.034-.078a2.501 2.501 0 0 0-2.092-1.416L12.5 13.5H9.57A4.985 4.985 0 0 0 6.002 12zM4 11H3v7h1v-7zm14-6a3 3 0 1 1 0 6a3 3 0 0 1 0-6zm0 2a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-7-5a3 3 0 1 1 0 6a3 3 0 0 1 0-6zm0 2a1 1 0 1 0 0 2a1 1 0 0 0 0-2z" />
+                                </svg>
+                                <p>{{ $orderedSummoners[$i]['gold_left'] }}</p>
+                            </div>
+                        </div>
+
+                    </td>
+
                 </tr>
             @endfor
         </table>

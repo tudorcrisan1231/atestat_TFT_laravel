@@ -679,6 +679,10 @@ body {
 .advanced_table_traits {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 0.5rem;
+}
+.advanced_table_traits_td {
+  width: 15% !important;
 }
 .advanced_table_units {
   display: grid;
@@ -691,4 +695,34 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+}
+.advanced_table_augments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.advanced_table_augments > *:not(:last-child) {
+  margin-bottom: 0.3rem;
+}
+.advanced_table_stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.advanced_table_stats > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.advanced_table_stats > * img {
+  width: 2rem;
+  height: 2rem;
+}
+.advanced_table_stats > * svg {
+  color: #cebe94;
+}
+.advanced_table_stats > * > *:not(:last-child) {
+  margin-right: 0.5rem;
 }

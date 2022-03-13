@@ -710,6 +710,11 @@ body {
         &_traits {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            row-gap: 0.5rem;
+
+            &_td {
+                width: 15% !important;
+            }
         }
 
         &_units {
@@ -723,6 +728,43 @@ body {
                 align-items: center;
                 justify-content: center;
                 position: relative;
+            }
+        }
+
+        &_augments {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            & > *:not(:last-child) {
+                margin-bottom: 0.3rem;
+            }
+        }
+
+        &_stats {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            & > * {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 2rem;
+                    height: 2rem;
+                }
+
+                svg {
+                    color: rgb(206, 190, 148);
+                }
+
+                & > *:not(:last-child) {
+                    margin-right: 0.5rem;
+                }
             }
         }
     }
