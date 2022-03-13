@@ -72,7 +72,23 @@
             array_push($itemsSummoners, $itemsSingleSummoner);
         }
         
-        // dd($itemsSummoners);
+        $boardValueSummoners = [];
+        
+        for ($h = 0; $h < count($orderedSummoners); $h++) {
+            $singleBoard_value = 0;
+            for ($i = 0; $i < count($orderedSummoners[$h]['units']); $i++) {
+                if ($orderedSummoners[$h]['units'][$i]['tier'] == 1) {
+                    $singleBoard_value += ($orderedSummoners[$h]['units'][$i]['rarity'] + 1) * 1;
+                } elseif ($orderedSummoners[$h]['units'][$i]['tier'] == 2) {
+                    $singleBoard_value += ($orderedSummoners[$h]['units'][$i]['rarity'] + 1) * 3;
+                } elseif ($orderedSummoners[$h]['units'][$i]['tier'] == 3) {
+                    $singleBoard_value += ($orderedSummoners[$h]['units'][$i]['rarity'] + 1) * 9;
+                }
+            }
+            array_push($boardValueSummoners, $singleBoard_value);
+        }
+        
+        // dd($boardValueSummoners);
         
     @endphp
 
@@ -88,6 +104,7 @@
                 <th>Units</th>
                 <th>Damage <br> done</th>
                 <th>Alive</th>
+                <th>Board <br> value</th>
                 <th>Left Gold</th>
             </tr>
             @for ($i = 0; $i < count($summonerNames); $i++)
@@ -214,6 +231,7 @@
                     </td>
                     <td>{{ $orderedSummoners[$i]['total_damage_to_players'] }}</td>
                     <td>{{ gmdate('i:s', $orderedSummoners[$i]['time_eliminated']) }}</td>
+                    <td>{{ $boardValueSummoners[$i] }}</td>
                     <td>{{ $orderedSummoners[$i]['gold_left'] }}</td>
                 </tr>
             @endfor
