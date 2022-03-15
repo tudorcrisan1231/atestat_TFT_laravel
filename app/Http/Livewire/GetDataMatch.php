@@ -18,22 +18,12 @@ class GetDataMatch extends Component
     public $matchResponseStatus; //verifica daca a fost facut request ul corect
     public $isOpenAdvanced = 0;
     public $summonerNames = []; //numele celorlalti 7 jucatari din meci (se executa doar cand se da pe extend btn pt ca ar fi prea multe request uri)
+    public $countTest = 0;
     public function render()
     {
         return view('livewire.get-data-match');
     }
 
-    // public function getParticipantsNames($gameData)
-    // {
-    //     $api_key = $_ENV['API_KEY'];
-    //     //get particiapnts names for each game
-    //     for ($i = 0; $i < count($gameData['info']['participants']); $i++) {
-    //         $data = Http::get("https://{$this->region}.api.riotgames.com/tft/summoner/v1/summoners/by-puuid/{$gameData['info']['participants'][$i]['puuid']}?api_key={$api_key}");
-    //         array_push($this->participantsNames, $data->json($key = null)['name']);
-    //     }
-
-    //     // return $participantsNames;
-    // }
 
     public function getDataSigleMatch()
     {

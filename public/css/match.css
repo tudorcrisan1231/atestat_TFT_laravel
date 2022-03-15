@@ -159,6 +159,7 @@ body {
   height: 20rem;
   margin-bottom: 2rem;
   border-radius: 3px;
+  margin-top: 2rem;
 }
 .match_history {
   background-color: var(--black_box);

@@ -14,13 +14,15 @@
                 <div class="match_ranks">
                     @include('match.components.ranks')
                 </div>
-            </div>
 
-            <div class="match_right">
                 <div class="match_summary">
                     <p>matches summary</p>
 
                 </div>
+            </div>
+
+            <div class="match_right">
+                {{--  --}}
 
                 <div class="match_history">
                     @include('match.components.single_match')
