@@ -6,6 +6,13 @@
         <div class="match">
             {{-- {{$region}}
     {{$summonerName}} --}}
+            <div class="match_right">
+                {{--  --}}
+
+                <div class="match_history">
+                    @include('match.components.single_match')
+                </div>
+            </div>
 
             <div class="match_left">
                 <div class="match_profile">
@@ -16,18 +23,10 @@
                 </div>
 
                 <div class="match_summary">
-                    <p>matches summary</p>
-
+                    @include('match.components.summary')
                 </div>
             </div>
 
-            <div class="match_right">
-                {{--  --}}
-
-                <div class="match_history">
-                    @include('match.components.single_match')
-                </div>
-            </div>
 
         </div>
     @endif

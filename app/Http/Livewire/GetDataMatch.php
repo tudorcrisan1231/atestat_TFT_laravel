@@ -18,11 +18,12 @@ class GetDataMatch extends Component
     public $matchResponseStatus; //verifica daca a fost facut request ul corect
     public $isOpenAdvanced = 0;
     public $summonerNames = []; //numele celorlalti 7 jucatari din meci (se executa doar cand se da pe extend btn pt ca ar fi prea multe request uri)
-    public $countTest = 0;
+
     public function render()
     {
         return view('livewire.get-data-match');
     }
+
 
 
     public function getDataSigleMatch()
