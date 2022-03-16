@@ -7,8 +7,6 @@
             {{-- {{$region}}
     {{$summonerName}} --}}
             <div class="match_right">
-                {{--  --}}
-
                 <div class="match_history">
                     @include('match.components.single_match')
                 </div>

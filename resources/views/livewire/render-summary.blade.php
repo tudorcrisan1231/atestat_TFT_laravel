@@ -1,7 +1,18 @@
 <div wire:init="getDataSummary">
+    @php
+        $mainPlayerPoz = []; //pozitile main player ului in cele 10 meciuri
+        for ($i = 0; $i < count($matchData); $i++) {
+            for ($j = 0; $j < count($matchData[$i]['info']['participants']); $j++) {
+                if ($matchData[$i]['info']['participants'][$j]['puuid'] == $puuid) {
+                    $mainPlayerPoz[] = $j;
+                }
+            }
+        }
+    @endphp
+
     @if ($matchData)
         @for ($i = 0; $i < count($matchData); $i++)
-            <p>{{ $matchData[$i] }}</p>
+            <p>{{ $matchData[$i]['info']['participants'][$mainPlayerPoz[$i]]['placement'] }}</p>
         @endfor
     @else
         <svg class="game_loading" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em"

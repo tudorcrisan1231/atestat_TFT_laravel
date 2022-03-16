@@ -9,6 +9,7 @@ class RenderSummary extends Component
 {
     public $gameList;
     public $continent;
+    public $puuid;
     public $matchData = [];
 
     public function render()
@@ -22,7 +23,7 @@ class RenderSummary extends Component
         for ($i = 0; $i < count($this->gameList); $i++) {
             $response = Http::get("https://{$this->continent}.api.riotgames.com/tft/match/v1/matches/{$this->gameList[$i]}?api_key={$api_key}");
 
-            array_push($this->matchData, $response->status());
+            array_push($this->matchData, $response->json($key = null));
         }
 
         $this->render();
