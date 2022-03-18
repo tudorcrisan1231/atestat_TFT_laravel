@@ -750,3 +750,7 @@ body {
 .advanced_table_stats > * > *:not(:last-child) {
   margin-right: 0.5rem;
 }
+
+.summary {
+  text-align: center;
+}

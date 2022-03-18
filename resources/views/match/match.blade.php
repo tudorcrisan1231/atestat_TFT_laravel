@@ -23,6 +23,7 @@
                 <div class="match_summary">
                     @include('match.components.summary')
                 </div>
+
             </div>
 
 
@@ -31,6 +32,7 @@
 @endsection
 
 @section('js')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="/js/script.js"></script>

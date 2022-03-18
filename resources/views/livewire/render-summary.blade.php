@@ -11,9 +11,48 @@
     @endphp
 
     @if ($matchData)
-        @for ($i = 0; $i < count($matchData); $i++)
+        {{-- @for ($i = 0; $i < count($matchData); $i++)
             <p>{{ $matchData[$i]['info']['participants'][$mainPlayerPoz[$i]]['placement'] }}</p>
-        @endfor
+        @endfor --}}
+        <div class="summary">
+            <p>Win rate</p>
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+        <script>
+            function pieChartWinRate() {
+                const data = {
+                    labels: ['Wins', 'Defeats', 'First Place'],
+                    datasets: [{
+                        label: 'Dataset 1',
+                        data: [4, 4, 2],
+                        backgroundColor: ['green', 'red', 'yellow'],
+                    }]
+                };
+
+                const config = {
+                    type: 'pie',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                        }
+                    },
+                };
+
+
+                const myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config
+                );
+            }
+            pieChartWinRate();
+        </script>
     @else
         <svg class="game_loading" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em"
             height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -59,5 +98,6 @@
             </circle>
         </svg>
     @endif
+
 
 </div>
