@@ -10,6 +10,7 @@ class RenderSummary extends Component
     public $gameList;
     public $continent;
     public $puuid;
+    public $augments_itemsJSON;
     public $matchData = [];
 
     public function render()

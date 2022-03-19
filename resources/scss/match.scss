@@ -787,4 +787,59 @@ body {
 }
 .summary {
     text-align: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    &_title {
+        grid-column: 1/-1;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    &_box {
+        background-color: var(--box);
+        padding: 0.5rem;
+        box-shadow: 2px 2px 29px 6px rgb(0 0 0 / 25%);
+        border-radius: 0.5rem;
+        transition: all 0.2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 2px 2px 29px 6px rgb(0 0 0 / 45%);
+        }
+    }
+
+    &_winRate {
+        grid-column: 1/-1;
+        &_chart {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            @media screen and (max-width: 450px) {
+                width: 80%;
+            }
+        }
+    }
+
+    &_places {
+        grid-column: 1/-1;
+        &_chart {
+            width: 90%;
+        }
+    }
+
+    &_item {
+        &_img {
+            width: 4rem;
+            height: 4rem;
+            border: 1px solid black;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+    }
 }

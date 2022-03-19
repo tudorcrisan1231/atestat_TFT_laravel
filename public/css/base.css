@@ -11,6 +11,7 @@
   --text: #fffffe;
   --black_box: #242629;
   --background: #16161a;
+  --box: rgba(192, 192, 192, 0.1);
   --color-first: rgb(255, 215, 0);
   --color-first07: rgba(255, 215, 0, 0.7);
   --color-first01: rgba(255, 215, 0, 0.1);
