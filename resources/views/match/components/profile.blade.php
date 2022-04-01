@@ -43,3 +43,9 @@ if ($duration <= 86399999) {
     </div>
 
 </div>
+
+<script>
+    document.querySelector('.bookmark').addEventListener('click',function(){
+        console.log('merge');
+    });
+</script>
