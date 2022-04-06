@@ -2,6 +2,9 @@ body {
     background-color: var(--background);
     overflow: hidden;
     scroll-behavior: smooth;
+    background-image: none !important;
+    overflow: visible;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -19,13 +22,17 @@ body {
 .hidden {
     display: none;
 }
-
+.login_btn{
+    position: static;
+    width: max-content;
+    justify-self: flex-end;
+}
 .match {
     color: var(--text);
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 2rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
     margin-bottom: 4rem;
 
     width: 80%;
@@ -41,6 +48,13 @@ body {
     }
     @media screen and (max-width: 1000px) {
         grid-template-columns: 1fr;
+    }
+
+    &_login{
+        grid-column: 1/-1;
+        grid-row: 1/2;
+
+        justify-self: flex-end;
     }
 
     &_loading {
@@ -116,7 +130,7 @@ body {
     }
 
     &_left {
-        grid-row: 1/2;
+        grid-row: 2/3;
         grid-column: 1/2;
         @media screen and (max-width: 1000px) {
             display: grid;
@@ -132,12 +146,12 @@ body {
     }
 
     &_right {
-        grid-row: 1/2;
+        grid-row: 2/3;
         grid-column: 2/3;
 
         @media screen and (max-width: 1000px) {
             grid-column: 1/-1;
-            grid-row: 2/3;
+            grid-row: 3/4;
         }
     }
 

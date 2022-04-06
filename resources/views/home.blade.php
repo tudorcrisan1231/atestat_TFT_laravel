@@ -55,12 +55,12 @@
         </div>
     </div>
 
-    <div class="layer hidden">
+    <div class="layer hidden_popup">
 
     </div>
 
 
-    <div class="popup popup_login hidden">
+    <div class="popup popup_login hidden_popup">
         <svg class="popup_LOGIN_close" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
             viewBox="0 0 24 24" style=" fill:#94a1b2;">
             <path
@@ -111,7 +111,7 @@
 
 
     <!-- sa se mai poata schimba intre ele popup urile de login si register (clase diferite la close btn uri si la open) -->
-    <div class="popup popup_register hidden">
+    <div class="popup popup_register hidden_popup">
         <svg class="popup_REGISTER_close" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
             viewBox="0 0 24 24" style=" fill:#94a1b2;">
             <path

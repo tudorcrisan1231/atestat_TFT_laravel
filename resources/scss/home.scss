@@ -135,7 +135,7 @@ body {
 }
 
 .popup {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -265,7 +265,7 @@ body {
     }
 }
 
-.hidden {
+.hidden_popup {
     top: -100% !important;
     transition: all 0.2s;
 }

@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
+    <link href="/css/home.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
     <link href="/css/match.css" rel="stylesheet">
 

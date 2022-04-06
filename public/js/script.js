@@ -11,34 +11,34 @@ function popup_login_register(){
 
     const btn_login_in = document.querySelector('.login_btn_in');
     
-    if(popup_login && layer && btn_login && btn_login_close && popup_login_register && btn_register && btn_register_close && btn_login_in){
+   // if(popup_login && layer && btn_login && btn_login_close && popup_login_register && btn_register && btn_register_close && btn_login_in){
     
       btn_login.addEventListener('click', function(){
-          popup_login.classList.toggle('hidden');
-          layer.classList.toggle('hidden');
+          popup_login.classList.toggle('hidden_popup');
+          layer.classList.toggle('hidden_popup');
       });
       btn_login_close.addEventListener('click', function(){
-          popup_login.classList.toggle('hidden');
-          layer.classList.toggle('hidden');
+          popup_login.classList.toggle('hidden_popup');
+          layer.classList.toggle('hidden_popup');
       });
   
       btn_register.addEventListener('click',function(){
-          popup_login.classList.toggle('hidden');
-          popup_register.classList.toggle('hidden');
+          popup_login.classList.toggle('hidden_popup');
+          popup_register.classList.toggle('hidden_popup');
       });
   
       btn_register_close.addEventListener('click', function(){
-          popup_login.classList.add('hidden');
-          popup_register.classList.add('hidden');
-          layer.classList.toggle('hidden');
+          popup_login.classList.add('hidden_popup');
+          popup_register.classList.add('hidden_popup');
+          layer.classList.toggle('hidden_popup');
       });
   
       btn_login_in.addEventListener('click', function(){
-          popup_login.classList.remove('hidden');
-          popup_register.classList.add('hidden');
+          popup_login.classList.remove('hidden_popup');
+          popup_register.classList.add('hidden_popup');
   
       });
-    }
+   // }
       console.log('salut');
 }
 popup_login_register();
