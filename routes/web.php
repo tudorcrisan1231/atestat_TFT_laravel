@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\TFTMatchController@homePageData')->name('home');
+
+Route::get('/login', 'App\Http\Controllers\Login@loginAccount')->name('login');
+Route::get('/register', 'App\Http\Controllers\Register@createAccount')->name('register');
+
 Route::get('/{region}/{summonerName}', 'App\Http\Controllers\TFTMatchController@matchData')->name('match');
 
 
