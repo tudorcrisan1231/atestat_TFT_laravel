@@ -22,3 +22,7 @@ Route::get('/{region}/{summonerName}', 'App\Http\Controllers\TFTMatchController@
 
 
 Route::post('/', 'App\Http\Controllers\TFTMatchController@getDataFormHomePage');  //metoda post pe care am pus o in home.blade.php ajunge aici si este redirectionata in getDataFormHomePage;
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
