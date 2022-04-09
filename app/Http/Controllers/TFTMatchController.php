@@ -16,7 +16,7 @@ class TFTMatchController extends Controller
 
         $test = 'test';
         // dd($response->object());
-        return view('home', ['news' => $news]);
+        return view('home_tft', ['news' => $news]);
     }
     public function getRegionContinent($region)
     {
