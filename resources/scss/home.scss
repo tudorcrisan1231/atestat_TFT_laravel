@@ -206,6 +206,15 @@ body {
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+
+    &_remember{
+        display: flex;
+        align-items: center;
+        input{
+            margin-right: .5rem;
+            margin-left: 0 !important;
+        }
+    }
 }
 .popup_form_input input {
     background-color: transparent;
