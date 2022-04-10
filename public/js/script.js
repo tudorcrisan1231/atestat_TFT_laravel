@@ -1,3 +1,15 @@
+function show_bookmark(){
+  const bookmark_btn = document.querySelector('.home_bookmarks_btn');
+  const bookmark_dropdown = document.querySelector('.home_bookmarks_dropdown');
+  if(bookmark_btn && bookmark_dropdown){
+    bookmark_btn.addEventListener('click',function(){
+      bookmark_dropdown.classList.toggle('hidden_bookmark');
+      bookmark_btn.classList.toggle('btn_open');
+    });
+  }
+}
+show_bookmark();
+
 function popup_login_register(){
     const popup_login = document.querySelector('.popup_login');
       //const popup_register = document.querySelector('.popup_register');
@@ -75,3 +87,5 @@ const labels = [
     document.getElementById('myChart'),
     config
   );
+
+

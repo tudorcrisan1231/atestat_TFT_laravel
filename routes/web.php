@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\TFTMatchController@homePageData')->name('home');
 
-Route::get('/login', 'App\Http\Controllers\Login@loginAccount')->name('login');
-Route::get('/register', 'App\Http\Controllers\Register@createAccount')->name('register');
 
 Route::get('/{region}/{summonerName}', 'App\Http\Controllers\TFTMatchController@matchData')->name('match');
 
 
 Route::post('/', 'App\Http\Controllers\TFTMatchController@getDataFormHomePage');  //metoda post pe care am pus o in home.blade.php ajunge aici si este redirectionata in getDataFormHomePage;
+Route::post('/deleteBookmark', 'App\Http\Controllers\HomeController@deleteBookmark');
+Route::post('/addBookmark', 'App\Http\Controllers\HomeController@addBookmark');
 
 Auth::routes();
 

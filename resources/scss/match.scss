@@ -857,3 +857,14 @@ body {
         }
     }
 }
+.bookmark_btn{
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}

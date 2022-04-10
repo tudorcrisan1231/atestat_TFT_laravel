@@ -93,6 +93,126 @@ body {
     margin-top: 7rem;
   }
 }
+.home_bookmarks {
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 900;
+  font-weight: normal;
+  transition: all 0.2s;
+}
+@media screen and (max-width: 600px) {
+  .home_bookmarks {
+    width: 200px;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.home_bookmarks_btn {
+  color: var(--text);
+  background-color: var(--main);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  justify-content: center;
+  cursor: pointer;
+}
+.home_bookmarks_btn svg {
+  margin-left: 0.5rem;
+}
+.home_bookmarks_dropdown {
+  max-height: 400px;
+  height: 400px;
+  width: 200px;
+  overflow: visible;
+  transition: all 0.2s;
+  background-color: #fff !important;
+  position: relative;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.home_bookmarks_dropdown_logout {
+  width: 100%;
+  background-color: #72757e;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.home_bookmarks_dropdown_logout svg {
+  color: var(--text);
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-left: 0.5rem;
+}
+.home_bookmarks_dropdown_logout a {
+  text-decoration: none;
+  color: var(--text);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.home_bookmarks_dropdown_players {
+  overflow-y: auto;
+  max-height: 360px;
+  padding: 0.3rem;
+}
+.home_bookmarks_dropdown_players_title {
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main);
+}
+.home_bookmarks_dropdown_players_title svg {
+  margin-left: 0.5rem;
+  width: 20px;
+  height: 20px;
+}
+.home_bookmarks_dropdown_players_player {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 194px;
+}
+.home_bookmarks_dropdown_players_player_name {
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hidden_bookmark {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.btn_open {
+  width: 200px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
 .home > * {
   margin-bottom: 3rem;

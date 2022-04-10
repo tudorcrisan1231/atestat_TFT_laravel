@@ -820,3 +820,15 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.bookmark_btn {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bookmark_btn svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
