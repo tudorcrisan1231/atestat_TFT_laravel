@@ -50,6 +50,36 @@ body {
         grid-template-columns: 1fr;
     }
 
+    &_home{
+        width: 100%;
+        background-color: var(--main);
+        border-radius: 3px;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(256,256,256, .2);
+        padding: .5rem 0;
+
+        svg{
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+        a{
+            font-size: 1.6rem;
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media screen and (max-width: 1000px) {
+            grid-column: 1/-1;
+            margin-top: 4rem;
+        }
+        @media screen and (max-width: 600px) {
+            margin-top: 4rem;
+        }
+    }
+
     &_login{
         grid-column: 1/-1;
         grid-row: 1/2;

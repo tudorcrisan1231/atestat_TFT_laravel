@@ -62,7 +62,7 @@
                             <div class="home_bookmarks_dropdown_logout">
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
                                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"
@@ -89,6 +89,20 @@
             </div>
 
             <div class="match_left">
+                <div class="match_home">
+                    <a href="/">
+                        <p>Back home</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"
+                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path d="m8 5l-5 5l5 5" />
+                                <path d="M3 10h8c5.523 0 10 4.477 10 10v1" />
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+
                 <div class="match_profile">
                     @include('match.components.profile')
                 </div>

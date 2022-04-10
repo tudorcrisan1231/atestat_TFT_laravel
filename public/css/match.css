@@ -63,6 +63,38 @@ body {
     grid-template-columns: 1fr;
   }
 }
+.match_home {
+  width: 100%;
+  background-color: var(--main);
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 0;
+}
+.match_home svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.match_home a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 1000px) {
+  .match_home {
+    grid-column: 1/-1;
+    margin-top: 4rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .match_home {
+    margin-top: 4rem;
+  }
+}
 .match_login {
   grid-column: 1/-1;
   grid-row: 1/2;
