@@ -4,6 +4,16 @@
         @include('match.components.not_found')
     @else
         <div class="layer_primary"></div>
+        @if (session('status'))
+            <div class="alert_bookmark">
+                <p>{{ session('status') }}</p>
+                <svg class="alert_bookmark_close" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
+                    width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="m13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29l-4.3 4.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l4.29-4.3l4.29 4.3a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42Z" />
+                </svg>
+            </div>
+        @endif
         <div class="match">
 
             <div class="match_login">
@@ -62,7 +72,7 @@
                             <div class="home_bookmarks_dropdown_logout">
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
                                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"

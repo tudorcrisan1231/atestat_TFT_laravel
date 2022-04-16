@@ -864,3 +864,26 @@ body {
   width: 2.5rem;
   height: 2.5rem;
 }
+
+.alert_bookmark {
+  position: absolute;
+  z-index: 500;
+  top: 0.5rem;
+  font-size: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(75, 181, 67, 0.4);
+  color: #fff;
+  border: 1px solid #4BB543;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alert_bookmark_close {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}

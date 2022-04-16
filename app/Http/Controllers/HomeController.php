@@ -58,7 +58,7 @@ class HomeController extends Controller
         DB::update('update bookmarks set  saves = ? where id_user=?', [json_encode($savesArrayJSON), $user_id]);
 
         // dd($savesArrayJSON);
-        return redirect(url('/' . $region . '/' . $summonerName));
+        return redirect(url('/' . $region . '/' . $summonerName))->with('status', 'Bookmark deleted!');
     }
     public function addBookmark()
     {
@@ -90,7 +90,8 @@ class HomeController extends Controller
             array_push($decodedBookmarks, array("region" => $region, "name" => $summonerName));
             DB::update('update bookmarks set  saves = ? where id_user=?', [json_encode($decodedBookmarks), $user_id]);
         }
-        return redirect(url('/' . $region . '/' . $summonerName));
+        // return redirect(url('/' . $region . '/' . $summonerName));
+        return redirect(url('/' . $region . '/' . $summonerName))->with('status', 'Bookmark added!');
         // dd($exist);
 
         // dd($region, $summonerName, $user_id);

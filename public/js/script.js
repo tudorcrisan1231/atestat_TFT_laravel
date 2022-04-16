@@ -1,8 +1,8 @@
-function show_bookmark(){
+function show_bookmark() {
   const bookmark_btn = document.querySelector('.home_bookmarks_btn');
   const bookmark_dropdown = document.querySelector('.home_bookmarks_dropdown');
-  if(bookmark_btn && bookmark_dropdown){
-    bookmark_btn.addEventListener('click',function(){
+  if (bookmark_btn && bookmark_dropdown) {
+    bookmark_btn.addEventListener('click', function () {
       bookmark_dropdown.classList.toggle('hidden_bookmark');
       bookmark_btn.classList.toggle('btn_open');
     });
@@ -10,82 +10,43 @@ function show_bookmark(){
 }
 show_bookmark();
 
-function popup_login_register(){
-    const popup_login = document.querySelector('.popup_login');
-      //const popup_register = document.querySelector('.popup_register');
-    const layer = document.querySelector('.layer');
-    const btn_login = document.querySelector('.login_btn');
-    const btn_login_close = document.querySelector('.popup_LOGIN_close');
-
-    const popup_register = document.querySelector('.popup_register');
-    const btn_register = document.querySelector('.register_btn');
-    const btn_register_close = document.querySelector('.popup_REGISTER_close');
-
-    const btn_login_in = document.querySelector('.login_btn_in');
-    
-   // if(popup_login && layer && btn_login && btn_login_close && popup_login_register && btn_register && btn_register_close && btn_login_in){
-    
-      btn_login.addEventListener('click', function(){
-          popup_login.classList.toggle('hidden_popup');
-          layer.classList.toggle('hidden_popup');
-      });
-      btn_login_close.addEventListener('click', function(){
-          popup_login.classList.toggle('hidden_popup');
-          layer.classList.toggle('hidden_popup');
-      });
-  
-      btn_register.addEventListener('click',function(){
-          popup_login.classList.toggle('hidden_popup');
-          popup_register.classList.toggle('hidden_popup');
-      });
-  
-      btn_register_close.addEventListener('click', function(){
-          popup_login.classList.add('hidden_popup');
-          popup_register.classList.add('hidden_popup');
-          layer.classList.toggle('hidden_popup');
-      });
-  
-      btn_login_in.addEventListener('click', function(){
-          popup_login.classList.remove('hidden_popup');
-          popup_register.classList.add('hidden_popup');
-  
-      });
-   // }
-      console.log('salut');
+function close_bookmarkAlert() {
+  if (document.querySelector('.alert_bookmark_close')) {
+    document.querySelector('.alert_bookmark_close').addEventListener('click', function () {
+      document.querySelector('.alert_bookmark').style.display = 'none';
+    });
+  }
 }
-popup_login_register();
-  //   tippy('button', {
-//     content: 'Global content',
-//     // trigger: 'click',
-//   });
+close_bookmarkAlert();
+
 
 const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+];
 
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-  };
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30, 45],
+  }]
+};
 
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
+const config = {
+  type: 'line',
+  data: data,
+  options: {}
+};
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
 
 
